@@ -123,11 +123,13 @@ class AutoBot(Connector):
 
         return board_x, board_y
 
+
     def _set_button_coords(self, image):
         width, height = image.size
         left = width / 2
         top = 1003 * (height / 1280.0) + 10
         self.swipe_x1, self.swipe_y1, self.swipe_x2, self.swipe_y2 = left, top, left, top
+
 
     def _get_press_time(self, piece_x, piece_y, board_x, board_y):
         distance = math.sqrt((board_x - piece_x) ** 2 + (board_y - piece_y) ** 2)
