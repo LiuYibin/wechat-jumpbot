@@ -13,7 +13,7 @@ Wechat Jump Game
 
 .. image:: https://github.com/alpesis-ai/wechat-jumpbot/blob/master/images/auto.png
    :height: 1334px
-   :width: 750px
+   :width: 500px
 
 
 ==============================================================================
