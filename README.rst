@@ -9,6 +9,11 @@ Features
 - Auto Mode: playing the game automatically;
 - Manual Mode: playing the game by manual.
 
+Manual Mode:
+
+.. image:: ./images/manual.png
+   :height: auto
+   :width: auto
 
 ==============================================================================
 How it runs
@@ -60,6 +65,9 @@ Updating the params
 
     $ vim jumpbot/settings.py
     # update the params in settings.py
+    # MODE = "manual"
+    # TIME_COEFF = 0.0021
+
 
 ==============================================================================
 Algorithms
