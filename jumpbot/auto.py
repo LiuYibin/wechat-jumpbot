@@ -43,7 +43,7 @@ class AutoBot(Connector):
                 print("Game Over.")
                 return
 
-            self._set_button_coords(image)            
+            self._set_button_coords(image)           
             press_time = self._get_press_time(piece_x, piece_y, board_x, board_y)
             print("- press time: ", press_time)
             self.connector_taphold(press_time)
