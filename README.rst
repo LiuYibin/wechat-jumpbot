@@ -47,10 +47,51 @@ Bot Agent (iOS)
 
 ::
 
-    $ git clone https://github.com/alpesis-ai/bot-agent-ios.git
+    $ git clone https://github.com/alpesis-ai/wechat-jumpbot.git
     $ cd bot-agent-ios
 
     $ pip3 install --pre facebook-wda
     $ pip3 install -r requirements.txt
     $ make run
 
+Updating the params
+
+::
+
+    $ vim jumpbot/settings.py
+    # update the params in settings.py
+
+==============================================================================
+Algorithms
+==============================================================================
+
+Manual Mode:
+
+- click the piece(x, y) and board(x, y) and get the coordinates correspondingly
+- calculating the distance and press time
+
+::
+
+    (coord1[0][0] - coord2[0][0])**2 + (coord2[0][1] - coord2[0][1])**2
+    distance = distance ** 0.5
+    press_time = distance * settings.TIME_COEFF
+
+Auto Mode:
+
+- the main idea same as the manual mode, but detecting the piece and the board automatically
+    - find coord_y_start_scan
+    - find piece
+    - find board
+
+
+==============================================================================
+Developement
+==============================================================================
+
+::
+
+    bot.py           <- auto       <-
+                                     |-- connector
+                     <- manual     <-
+
+    settings.py
