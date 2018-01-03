@@ -12,8 +12,8 @@ Features
 Manual Mode:
 
 .. image:: https://github.com/alpesis-ai/wechat-jumpbot/blob/master/images/manual.png
-   :height: auto
-   :width: auto
+   :height: 1334px
+   :width: 750px 
 
 ==============================================================================
 How it runs

@@ -23,7 +23,7 @@ IMAGE_DIR = PROJECT_DIR + DATA_DIR + IMAGE
 # ----------------------------------------------------------------------------
 
 # mode: ['auto', 'manual']
-MODE = "manual"
+MODE = "auto"
 
 # ----------------------------------------------------------------------------
 # Params
@@ -33,7 +33,7 @@ MODE = "manual"
 # - iphone 6/7: 0.0021
 # Auto Mode:
 # - iphone 6/7: 2.0
-TIME_COEFF = 0.0021
+TIME_COEFF = 2.
 
 # Auto Mode:
 COORD_Y_START_SCAN = 580
