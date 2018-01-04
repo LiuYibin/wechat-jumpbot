@@ -11,7 +11,7 @@ from algos import get_press_time
 
 class AutoBot(Connector):
 
-    def __init__(self):
+    def __init__(self, params=settings.get_bot_params()):
         # init connector
         super(AutoBot, self).__init__()
 
@@ -19,6 +19,7 @@ class AutoBot(Connector):
         self.status = True
 
         # init game
+        self.params = params
         self.swipe_x1 = 0;
         self.swipe_y1 = 0;
         self.swipe_x2 = 0;
@@ -45,7 +46,7 @@ class AutoBot(Connector):
                 return
 
             self._set_button_coords(image)           
-            press_time = get_press_time(piece_x, piece_y, board_x, board_y)
+            press_time = get_press_time(piece_x, piece_y, board_x, board_y, self.params["TIME_COEFF"])
             print("- press time: ", press_time)
             self.connector_taphold(press_time)
             time.sleep(random.uniform(1, 1.1))
@@ -56,7 +57,7 @@ class AutoBot(Connector):
         pixels = image.load()
         coord_y_start_scan = 0
 
-        for i in range(settings.COORD_Y_START_SCAN, height, 50):
+        for i in range(self.params["COORD_Y_START_SCAN"], height, 50):
             last_pixel = pixels[0, i]
             for j in range(1, width):
                 pixel = pixels[j, i]
@@ -88,7 +89,7 @@ class AutoBot(Connector):
 
         if not all((piece_x_sum, piece_x_counter)): return 0, 0
         piece_x = piece_x_sum / piece_x_counter
-        piece_y = piece_y_max - settings.PIECE_BASE_HEIGHT_HALF
+        piece_y = piece_y_max - self.params["PIECE_BASE_HEIGHT_HALF"]
         return piece_x, piece_y
 
 
@@ -108,7 +109,7 @@ class AutoBot(Connector):
             last_pixel = pixels[0, i]
             for j in range(width):
                 pixel = pixels[j, i]
-                if (abs(j - piece_x) < settings.PIECE_BODY_WIDTH):
+                if (abs(j - piece_x) < self.params["PIECE_BODY_WIDTH"]):
                     continue
                 if abs(pixel[0] - last_pixel[0]) + abs(pixel[1] - last_pixel[1]) + abs(pixel[2] - last_pixel[2]) > 10:
                     board_x_sum += j

@@ -28,18 +28,30 @@ MODE = "manual"
 # ----------------------------------------------------------------------------
 # Params
 
-# Manual Mode:
-# - iphone X: 0.00125
-# - iphone 6/7: 0.0021
-# Auto Mode:
-# - iphone 6/7: 2.0
-TIME_COEFF = 2.
+def get_bot_params(model="ip7"):
 
-# Auto Mode:
-COORD_Y_START_SCAN = 580
-PIECE_BASE_HEIGHT_HALF = 13
-PIECE_BODY_WIDTH = 49
-SWIPE_X1 = 375
-SWIPE_Y1 = 1055
-SWIPE_X2 = 375
-SWIPE_Y2 = 1055
+    bot_params = {
+        "TIME_COEFF": 2.,
+        "COORD_Y_START_SCAN": 200,
+        "PIECE_BASE_HEIGHT_HALF": 13,
+        "PIECE_BODY_WIDTH": 49,
+        "SWIPE_X1": 375,
+        "SWIPE_Y1": 1055,
+        "SWIPE_X2": 375,
+        "SWIPE_Y2": 1055
+    }
+
+    if model == "ip7":
+        bot_params["TIME_COEFF"] = 2.
+        bot_params["COORD_Y_START_SCAN"] = 200
+        bot_params["PIECE_BASE_HEIGHT_HALF"] = 13
+        bot_params["PIECE_BODY_WIDTH"] = 49
+        bot_params["SWIPE_X1"] = 375
+        bot_params["SWIPE_Y1"] = 1055
+        bot_params["SWIPE_X2"] = 375
+        bot_params["SWIPE_Y2"] = 1055
+
+    else:
+        return bot_params
+
+    return bot_params

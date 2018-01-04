@@ -13,7 +13,7 @@ from algos import get_press_time
 
 class ManualBot(Connector):
 
-    def __init__(self):
+    def __init__(self, params=settings.get_bot_params()):
         # init connector
         super(ManualBot, self).__init__()
 
@@ -21,6 +21,8 @@ class ManualBot(Connector):
         self.figure = plt.figure()
 
         # actions
+        self.steps = 0
+        self.params = params
         self.coords = []
         self.ix = [0, 0]
         self.iy = [0, 0]
@@ -52,9 +54,14 @@ class ManualBot(Connector):
             # next screen
             coord1 = self.coords.pop()
             coord2 = self.coords.pop()
-            press_time = get_press_time(coord1[0][0], coord1[0][1], coord2[0][0], coord2[0][1])
-            print("distance = ", distance)
-            print("press_time = ", press_time)
+            press_time = get_press_time(coord1[0][0], coord1[0][1],
+                                        coord2[0][0], coord2[0][1], 
+                                        self.params["TIME_COEFF"])
+            self.steps += 1
+            print("Step: ", self.steps)
+            print("- coord1: ", coord1)
+            print("- coord2: ", coord2)
+            print("- press_time: ", press_time)
             self.connector_taphold(press_time)
             self.status = True
 
