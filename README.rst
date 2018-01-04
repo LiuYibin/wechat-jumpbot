@@ -103,8 +103,6 @@ Developement
 
 ::
 
-    bot.py           <- auto       <-
-                                     |-- connector
-                     <- manual     <-
-
-    settings.py
+    connector ---| 
+                 | --> auto / manual  --> bot
+    algos     ---|
