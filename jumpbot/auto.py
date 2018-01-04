@@ -1,11 +1,12 @@
-import math
 import time
+import math
 import random
 
 from PIL import Image, ImageDraw
 
 import settings
 from connector import Connector
+from algos import get_press_time
 
 
 class AutoBot(Connector):
@@ -44,7 +45,7 @@ class AutoBot(Connector):
                 return
 
             self._set_button_coords(image)           
-            press_time = self._get_press_time(piece_x, piece_y, board_x, board_y)
+            press_time = get_press_time(piece_x, piece_y, board_x, board_y)
             print("- press time: ", press_time)
             self.connector_taphold(press_time)
             time.sleep(random.uniform(1, 1.1))
@@ -123,15 +124,8 @@ class AutoBot(Connector):
 
         return board_x, board_y
 
-
     def _set_button_coords(self, image):
         width, height = image.size
         left = width / 2
         top = 1003 * (height / 1280.0) + 10
         self.swipe_x1, self.swipe_y1, self.swipe_x2, self.swipe_y2 = left, top, left, top
-
-
-    def _get_press_time(self, piece_x, piece_y, board_x, board_y):
-        distance = math.sqrt((board_x - piece_x) ** 2 + (board_y - piece_y) ** 2)
-        press_time = distance * settings.TIME_COEFF / 1000
-        return press_time

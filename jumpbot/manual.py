@@ -8,6 +8,7 @@ import matplotlib.animation as animation
 
 import settings
 from connector import Connector
+from algos import get_press_time
 
 
 class ManualBot(Connector):
@@ -51,9 +52,7 @@ class ManualBot(Connector):
             # next screen
             coord1 = self.coords.pop()
             coord2 = self.coords.pop()
-            distance = (coord1[0][0] - coord2[0][0])**2 + (coord2[0][1] - coord2[0][1])**2
-            distance = distance ** 0.5
-            press_time = distance * settings.TIME_COEFF
+            press_time = get_press_time(coord1[0][0], coord1[0][1], coord2[0][0], coord2[0][1])
             print("distance = ", distance)
             print("press_time = ", press_time)
             self.connector_taphold(press_time)
