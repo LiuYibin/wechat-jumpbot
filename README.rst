@@ -58,7 +58,11 @@ Bot Agent (iOS)
 
     $ pip3 install --pre facebook-wda
     $ pip3 install -r requirements.txt
-    $ make run
+    # make run
+    # - model: [ip, plus, ipx, se]
+    # - mode: [auto, manual]
+    # python3 jumpbot/bot.py --model <device_model> --mode <mode>
+    $ python3 jumpbot/bot.py --model ip --mode auto
 
 Updating the params
 
