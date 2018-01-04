@@ -62,16 +62,8 @@ Bot Agent (iOS)
     # - model: [ip, plus, ipx, se]
     # - mode: [auto, manual]
     # python3 jumpbot/bot.py --model <device_model> --mode <mode>
+    $ mkdir -p jumpbot/data
     $ python3 jumpbot/bot.py --model ip --mode auto
-
-Updating the params
-
-::
-
-    $ vim jumpbot/settings.py
-    # update the params in settings.py
-    # MODE = "manual"
-    # TIME_COEFF = 0.0021
 
 
 ==============================================================================

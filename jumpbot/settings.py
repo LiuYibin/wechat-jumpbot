@@ -8,12 +8,6 @@ PROJECT_ROOT = os.path.dirname(CURRENT_DIR)
 PROJECT_DIR = "jumpbot/"
 
 # ----------------------------------------------------------------------------
-# Configurations
-
-CONFIG_DIR = "config/"
-CONFIG_FILE = PROJECT_DIR + CONFIG_DIR + "config.json"
-
-# ----------------------------------------------------------------------------
 # Screenshot
 
 DATA_DIR = "data/"
@@ -82,6 +76,6 @@ def get_bot_params(model="ip"):
         bot_params["SWIPE_Y2"] = 1055
 
     else:
-        return bot_params
+        print("ParamError: Unknown model type, model should be [ip, plus, ipx, se]")
 
     return bot_params
