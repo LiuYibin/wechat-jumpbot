@@ -64,7 +64,14 @@ Bot Agent (iOS)
     # - mode: [auto, manual]
     # python3 jumpbot/bot.py --model <device_model> --mode <mode>
     $ mkdir -p jumpbot/data
+    # iphone 6/7
     $ python3 jumpbot/bot.py --model ip --mode auto
+    # iphone 6/7 plus
+    $ python3 jumpbot/bot.py --model plus --mode auto
+    # iphone X
+    $ python3 jumpbot/bot.py --model ipx --mode auto
+    # iphone SE
+    $ python3 jumpbot/bot.py --model se --mode auto
 
 
 ==============================================================================
