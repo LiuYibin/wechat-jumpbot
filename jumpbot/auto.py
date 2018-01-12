@@ -49,7 +49,9 @@ class AutoBot(Connector):
             press_time = get_press_time(piece_x, piece_y, board_x, board_y, self.params["TIME_COEFF"])
             print("- press time: ", press_time)
             self.connector_taphold(press_time)
-            time.sleep(random.uniform(1, 1.1))
+
+            sleepDuration = random.uniform(1.2, 2)
+            time.sleep(sleepDuration)
 
 
     def _get_coord_y_start_scan(self, image):
@@ -122,6 +124,9 @@ class AutoBot(Connector):
         board_y = piece_y - abs(board_x - piece_x) * math.sqrt(3) / 3
         if not all ((board_x, board_y)):   
             return 0, 0
+
+        board_x += random.randint(-3, 3)
+        board_y += random.randint(-3, 3)
 
         return board_x, board_y
 

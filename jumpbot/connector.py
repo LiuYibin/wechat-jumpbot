@@ -1,7 +1,7 @@
 import wda
 
 import settings
-
+import random
 
 class Connector:
 
@@ -18,4 +18,6 @@ class Connector:
 
 
     def connector_taphold(self, value):
-        self.session.tap_hold(200, 200, value)
+        x = 260 + random.randint(-20, 20)
+        y = 380 + random.randint(-20, 20)
+        self.session.tap_hold(x, y, value)
